@@ -1,16 +1,3 @@
-// Fix anchor jump on load
-  window.addEventListener("load", function () {
-    if (window.location.hash) {
-      const id = window.location.hash.substring(1);
-      const el = document.getElementById(id);
-      if (el) {
-        // Slight delay to allow rendering
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 200); // 200ms delay can be adjusted
-      }
-    }
-  });
 
 
 // testimonial script //
