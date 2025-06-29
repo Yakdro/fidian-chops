@@ -802,7 +802,7 @@ button.next:hover{
 
 @media (max-width: 480px) {
   :root {
-    --scroll-offset: 180px;
+    --scroll-offset: 80px;
   }
 
     section{
