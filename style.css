@@ -28,7 +28,7 @@ body{
 
 /* herder styling */
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   background-color: #c8102e; /* red */
@@ -805,12 +805,6 @@ button.next:hover{
     --scroll-offset: 180px;
     }
 
-    section{
-    padding: 30px 10px;
-    max-width: 600px;
-    margin: auto;
-    scroll-margin-top: var(--scroll-offset);
-    }
   header {
     padding: 10px 0;
   }
