@@ -815,7 +815,8 @@ button.next:hover{
   }
 
   .intro-section p {
-    font-size: 0.95rem;
+    font-size: 0.90rem;
+      text-align:center;
   }
 
   .menu-btn {
