@@ -805,9 +805,6 @@ button.next:hover{
     --scroll-offset: 80px;
   }
 
-    section{
-    scroll-margin-top: var(--scroll-offset);
-    }
   header {
     padding: 10px 0;
   }
