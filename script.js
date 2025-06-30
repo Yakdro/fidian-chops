@@ -1,24 +1,3 @@
-function smoothScrollToHash(retryCount = 0) {
-    const hash = window.location.hash;
-    if (!hash) return;
-
-    const target = document.getElementById(hash.substring(1));
-    if (!target) return;
-
-    const rect = target.getBoundingClientRect();
-    // Check that element actually has been rendered
-    if (rect.top === 0 && retryCount < 5) {
-      // Too early — retry with delay
-      setTimeout(() => smoothScrollToHash(retryCount + 1), 200);
-    } else {
-      // Element ready — scroll to its position
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  window.addEventListener('load', () => smoothScrollToHash());
-  window.addEventListener('hashchange', () => smoothScrollToHash());
-
 
 // testimonial script //
 document.addEventListener("DOMContentLoaded", () => {
@@ -34,28 +13,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // fade function //
-  const faders = document.querySelectorAll('.fade-in');
+  document.addEventListener("DOMContentLoaded", function () {
+  const fadeIns = document.querySelectorAll(".fade-in");
 
-const appearOptions = {
-  threshold: 0.2,
-  rootMargin: "0px 0px -20px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("visible");
-    observer.unobserve(entry.target);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, {
+    threshold: 0.1
   });
-}, appearOptions);
 
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
+  fadeIns.forEach(section => {
+    // Skip fade-in if this is the anchor jump target
+    if (location.hash && "#" + section.id === location.hash) {
+      section.classList.add("visible");
+    } else {
+      observer.observe(section);
+    }
+  });
 });
 
-window.addEventListener('scroll', () => {
-  scrollTopBtn.style.display = (window.scrollY > 200) ? "block" : "none";
-});
 
 // smooth scroll//
 window.addEventListener('load', () => {
