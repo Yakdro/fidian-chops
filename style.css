@@ -710,7 +710,10 @@ button.next:hover{
 
 /* mobile Responsiveness */
 @media screen and (max-width: 768px) {
-  
+
+    :root {
+    --scroll-offset: 180px;
+    }
   .header-wrapper {
     flex-direction: column;
     align-items: center;
@@ -807,9 +810,6 @@ button.next:hover{
 }
 
 @media (max-width: 480px) {
-    :root {
-    --scroll-offset: 180px;
-    }
 
   header {
     padding: 10px 0;
