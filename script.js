@@ -1,3 +1,23 @@
+function smoothScrollToHash(retryCount = 0) {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const target = document.getElementById(hash.substring(1));
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    // Check that element actually has been rendered
+    if (rect.top === 0 && retryCount < 5) {
+      // Too early — retry with delay
+      setTimeout(() => smoothScrollToHash(retryCount + 1), 200);
+    } else {
+      // Element ready — scroll to its position
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  window.addEventListener('load', () => smoothScrollToHash());
+  window.addEventListener('hashchange', () => smoothScrollToHash());
 
 
 // testimonial script //
