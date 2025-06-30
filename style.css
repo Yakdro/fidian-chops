@@ -756,6 +756,12 @@ button.next:hover{
     padding: 10px 20px;
     font-size: 1rem;
   }
+
+    #menu.fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    }
 }
 
 /* Responsive text sizing */
@@ -797,12 +803,6 @@ button.next:hover{
     width: 100%;
     text-align: center;
   }
-
-    #menu.fade-in {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    }
   
 }
 
